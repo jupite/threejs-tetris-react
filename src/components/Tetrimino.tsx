@@ -124,11 +124,15 @@ export const Tetrimino: React.FC<{ block: Block; color: string }> = React.memo((
   return (
     <group position={[block.x, block.y, block.z]}>
       <Box args={[1, 1, 1]}>
-        <meshStandardMaterial color={color} />
+        <meshStandardMaterial 
+          color={color} 
+          metalness={0.3} 
+          roughness={0.2} 
+        />
       </Box>
       <lineSegments>
         <edgesGeometry attach='geometry' args={[new BoxGeometry(1, 1, 1)]} />
-        <lineBasicMaterial attach='material' color='black' />
+        <lineBasicMaterial attach='material' color='#ffffff' />
       </lineSegments>
     </group>
   );

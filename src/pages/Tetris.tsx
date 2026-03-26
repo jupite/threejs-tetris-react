@@ -335,15 +335,6 @@ const Tetris: React.FC = () => {
         <>
             {/* 页面标题 */}
             <div className="game-header">
-                <a
-                    className="github-logo"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    href="https://github.com/RylanBot/threejs-tetris-react"
-                >
-                    <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" />
-                </a>
-
                 <h1 className="title-3d">3D Tetris</h1>
 
                 <div className="game-buttons-container">
@@ -377,7 +368,10 @@ const Tetris: React.FC = () => {
                 {/* 游戏内容 */}
                 <div className="game-canvas-left">
                     <Canvas>
-                        <ambientLight intensity={2} />
+                        <ambientLight intensity={1.5} />
+                        <directionalLight position={[5, 10, 7.5]} intensity={1.2} castShadow />
+                        <pointLight position={[10, 10, 10]} intensity={0.5} />
+                        <pointLight position={[-10, 10, -10]} intensity={0.5} />
                         <OrbitControls
                             ref={controlsRef}
                             target={[2, 6, 0]}
